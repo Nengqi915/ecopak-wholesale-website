@@ -805,7 +805,7 @@ const cafeCupProducts = [
   {
     id: "takeaway-coffee-pack",
     name: "Takeaway Coffee Pack For Cafe",
-    image: "/images/Cafe%20Cups%201.png",
+    image: "https://shopcdnpro.grainajz.com/category/83624/2839/1d9ffae5c7b498ae81f5cb84ac3a4e5c/Cafe%20Cups%201.png",
     description: "Introducing our Takeaway Coffee Pack specifically designed for cafes. This convenient packaging solution is perfect for serving your customers' favorite coffee drinks on the go. It features sturdy, eco-friendly materials that ensure both freshness and sustainability. The sleek design complements your cafe's branding, while the secure sealing ensures no spills or leaks.",
     longDescription: [
       "Our Takeaway Coffee Pack is highly customizable to fit your unique needs. Choose from a variety of sizes to accommodate different beverage volumes, from espresso shots to large lattes. These packs are microwave and freezer-safe, making them incredibly versatile for various consumer preferences. The ergonomic design and tight-sealing lids guarantee that your customers can enjoy their drinks anywhere, anytime without hassle.",
@@ -826,7 +826,7 @@ const cafeCupProducts = [
   {
     id: "various-coffee-drink",
     name: "Various Coffee Drink For Your Choices",
-    image: "/images/Cafe%20Cups%202.png",
+    image: "https://shopcdnpro.grainajz.com/category/83624/2839/0605b86851e8ec2fd3e1494b333007cc/Cafe%20Cups%202.png",
     description: "We offer a diverse selection of coffee paper cups to cater to every need. Whether you are looking for a classic design, a unique pattern, or a cup with special functional features, we have it all. Our cups come in a wide range of sizes (4oz, 8oz, 12oz, 16oz, 20oz) providing the perfect fit for any coffee type.",
     longDescription: [
       "Our paper cups are designed with both functionality and style in mind. Many feature excellent insulation properties to keep your coffee reliably hot for longer, while the smooth, premium finish adds an elegant touch. We also offer options that are microwave and dishwasher safe, suiting both commercial environments and home usage perfectly.",
@@ -837,7 +837,7 @@ const cafeCupProducts = [
   {
     id: "pizza-catering",
     name: "Pizza Catering Restaurant",
-    image: "/images/Cafe%20Cups%203.png",
+    image: "https://shopcdnpro.grainajz.com/category/83624/2839/bc0c1bc5dd8c9afb572f14cbd053a07d/Cafe%20Cups%203.png",
     description: "Our catering and restaurant paper cups provide an elevated dining experience. Designed with convenience and sustainability at the forefront, these cups are crafted from highly durable yet biodegradable materials. They are perfect for serving various beverages, from sodas to rich coffees.",
     longDescription: [
       "Each paper cup highlights an elegant, modern design that acts as an extension of your restaurant's ambiance. Providing high-quality customized cups adds a touch of professionalism and heightened brand recognition, making every customer interaction more memorable. Whether catering a small gathering or a mass event, these cups are perfectly suited for the task.",
@@ -848,7 +848,7 @@ const cafeCupProducts = [
   {
     id: "cold-coffee-drink-cups",
     name: "Cold Coffee Drink Cups",
-    image: "/images/Custom%20Your%20Brand%20Coffee%20Pack%205.png",
+    image: "https://shopcdnpro.grainajz.com/category/83624/2839/2b757078616d0f4ab4c9d1fce97d78e8/Custom%20Your%20Brand%20Coffee%20Pack%205.png",
     description: "Cold iced coffee plastic cups are specifically optimized for serving refreshing cold or iced beverages. Made from durable and lightweight transparent plastics, they seamlessly show off your drinks' color and consistency, dramatically enhancing the visual presentation.",
     longDescription: [
       "Our cold cups feature a sturdy, cost-effective single-wall construction. They are highly adaptable and come with customizable options such as logos, distinctive patterns, and specialized finishes. To ensure convenience and prevent spills, we offer a range of securely fitting dome and flat lids.",
@@ -867,7 +867,7 @@ const cafeCupProducts = [
   {
     id: "double-walls-paper-cups",
     name: "Double Walls Paper Cups",
-    image: "/images/Custom%20Your%20Brand%20Coffee%20Pack%206.png",
+    image: "https://shopcdnpro.grainajz.com/category/83624/2839/e884806783603261192a7d422e191d6d/Custom%20Your%20Brand%20Coffee%20Pack%206.png",
     description: "Double Wall Hot Drinks Paper Cups are meticulously designed to keep your beverages hot for an extended period. The inventive double-wall construction provides exceptional insulation, avoiding rapid heat loss and minimizing uncomfortable exterior condensation.",
     longDescription: [
       "Manufactured from high-quality paper material, our double wall cups are structurally sturdy and wonderfully eco-friendly. They eliminate the need for an external sleeve while ensuring a safe, comfortable grip for your customers. They are indisputably the premium choice for serving gourmet coffees, teas, and rich hot chocolates.",
