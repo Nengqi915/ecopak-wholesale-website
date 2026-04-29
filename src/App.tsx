@@ -15,48 +15,60 @@ import {
   Leaf
 } from 'lucide-react';
 import { CoffeeBeansBags, CoffeeBeansBagsDetail } from './CoffeeBeansBags';
+import { CoffeeMugs, CoffeeMugsDetail } from './CoffeeMugs';
+import { YourOwnDesign, YourOwnDesignDetail } from './YourOwnDesign';
+import { OneStop, OneStopDetail } from './OneStop';
+import { Blog, BlogDetail } from './Blog';
 
 const products = [
   { 
-    name: 'Cold Coffee Cups', 
-    image: 'https://images.unsplash.com/photo-1544253139-44588cc8097b?auto=format&fit=crop&q=80&w=800',
-    description: 'Durable and clear plastic cups for cold brew and iced lattes.'
+    name: 'Cold Coffee Drink Cups', 
+    image: 'https://shopcdnpro.grainajz.com/category/83624/2839/2b757078616d0f4ab4c9d1fce97d78e8/Custom%20Your%20Brand%20Coffee%20Pack%205.png',
+    description: 'Durable and clear plastic cups for cold brew and iced lattes.',
+    page: 'cafe-cups/cold-coffee-drink-cups'
   },
   { 
-    name: 'Hot Drinks Coffee Cups', 
-    image: 'https://images.unsplash.com/photo-1517578239113-b0399205831a?auto=format&fit=crop&q=80&w=800',
-    description: 'Double-walled insulated cups to keep your coffee hot and hands safe.'
+    name: 'Double Walls Paper Cups', 
+    image: 'https://shopcdnpro.grainajz.com/category/83624/2839/e884806783603261192a7d422e191d6d/Custom%20Your%20Brand%20Coffee%20Pack%206.png',
+    description: 'Double-walled insulated cups to keep your coffee hot and hands safe.',
+    page: 'cafe-cups/double-walls-paper-cups'
   },
   { 
-    name: 'Ground Coffee Bags', 
-    image: 'https://images.unsplash.com/photo-1559056191-75902422509d?auto=format&fit=crop&q=80&w=800',
-    description: 'One-way degassing valve bags to keep ground coffee fresh.'
+    name: 'Drip Coffee Bags', 
+    image: 'https://shopcdnpro.grainajz.com/category/83624/2839/1c0014e427888587264b828960536684/Coffee%20Beans%20Bags%206.png',
+    description: 'Convenient, single-serve drip coffee bags for quick and easy brewing.',
+    page: 'coffee-beans-bags/drip-coffee-bags'
   },
   { 
-    name: '1kg Coffee Beans Bags', 
-    image: 'https://images.unsplash.com/photo-1580915411954-282cb1b0d780?auto=format&fit=crop&q=80&w=800',
-    description: 'Large capacity bags for wholesale coffee bean distribution.'
+    name: 'Flat Bottom Coffee Bags', 
+    image: 'https://shopcdnpro.grainajz.com/category/83624/2839/37932dac9402132b570b1c3d8a073ae3/Coffee%20Beans%20Bags%207.png',
+    description: 'Large capacity bags for wholesale coffee bean distribution.',
+    page: 'coffee-beans-bags/flat-bottom-coffee-bags'
   },
   { 
-    name: 'UAE Style Coffee Bags', 
-    image: 'https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?auto=format&fit=crop&q=80&w=800',
-    description: 'Culturally inspired designs for the Middle Eastern market.'
+    name: 'Luxury Brand Coffee Bags', 
+    image: 'https://shopcdnpro.grainajz.com/category/83624/2839/bbdbbf738c736f62847f2e7d916b11fd/Luxury%20Brand%20Coffee%20Bags.png',
+    description: 'Premium luxury packaging with metallic gold accents.',
+    page: 'coffee-beans-bags/luxury-brand-coffee-bags'
   },
   { 
-    name: 'Black Gold Coffee Bags', 
-    image: 'https://images.unsplash.com/photo-1552056752-473067e7d7e8?auto=format&fit=crop&q=80&w=800',
-    description: 'Premium luxury packaging with metallic gold accents.'
+    name: 'Stand Up Coffee Bags', 
+    image: 'https://shopcdnpro.grainajz.com/category/83624/2839/d23bed1b75fda286285a867d88591cac/Coffee%20Beans%20Bags%204.png',
+    description: 'Classic and versatile stand-up pouches with resealable zippers.',
+    page: 'coffee-beans-bags/stand-up-coffee-bags170'
   },
   { 
-    name: 'Stand Up Pouch', 
-    image: 'https://images.unsplash.com/photo-1601314167099-232775b3d6fd?auto=format&fit=crop&q=80&w=800',
-    description: 'Reliable shelf-stable pouches with resealable zippers.'
+    name: 'Eco-friendly PE Coffee Bags', 
+    image: 'https://shopcdnpro.grainajz.com/category/83624/2839/5fa72936da9ce26b2a6c64b028777827/Coffee%20Beans%20Bags%208.png',
+    description: '100% Recyclable PE-based coffee bags designed for the environmentally conscious brand.',
+    page: 'coffee-beans-bags/eco-friendly-pe-coffee-bags'
   },
   { 
-    name: 'Drip Coffee Gift Boxes', 
-    image: 'https://images.unsplash.com/photo-1544667507-680479f67a21?auto=format&fit=crop&q=80&w=800',
-    description: 'Elegant presentation boxes for specialty drip coffee sets.'
-  },
+    name: 'Pizza Catering Restaurant', 
+    image: 'https://shopcdnpro.grainajz.com/category/83624/2839/bc0c1bc5dd8c9afb572f14cbd053a07d/Cafe%20Cups%203.png',
+    description: 'Durable yet biodegradable paper cups for serving various beverages.',
+    page: 'cafe-cups/pizza-catering'
+  }
 ];
 
 const Logo = ({ className = "w-12 h-12" }: { className?: string }) => (
@@ -91,24 +103,19 @@ const navItems: NavItem[] = [
     subItems: [
       { name: 'Cafe Cups', page: 'cafe-cups' },
       { name: 'Coffee Beans Bags', page: 'coffee-beans-bags' },
-      { name: 'Coffee Mugs', href: '#products' },
-      { name: 'Your Own Design', href: '#contact' },
+      { name: 'Coffee Mugs', page: 'coffee-mugs' },
+      { name: 'Your Own Design', page: 'your-own-design' },
     ]
   },
   {
-    name: 'Products',
-    href: '#products',
-    page: 'home',
-    subItems: products.map(p => ({ name: p.name, href: `#${p.name.toLowerCase().replace(/\s+/g, '-')}` }))
+    name: 'One-Stop Packaging',
+    page: 'one-stop-packaging',
+    href: '#'
   },
   {
     name: 'Blog',
-    href: '#',
-    subItems: [
-      { name: 'Packaging Tips', href: '#' },
-      { name: 'Brand Strategy', href: '#' },
-      { name: 'Case Studies', href: '#' },
-    ]
+    page: 'blog',
+    href: '#'
   },
   { name: 'Contact Us', href: '#contact', page: 'home' },
   { name: 'Get A Quote', href: '#contact', isButton: true, page: 'home' },
@@ -179,7 +186,7 @@ const Navbar = ({ setPage, currentPage, openInquiry }: { setPage: (p: string) =>
   const [activeMobileMenu, setActiveMobileMenu] = useState<string | null>(null);
 
   return (
-    <nav className="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <button 
@@ -191,7 +198,7 @@ const Navbar = ({ setPage, currentPage, openInquiry }: { setPage: (p: string) =>
           >
             <Logo className="w-14 h-14" />
             <div className="flex flex-col leading-none text-left">
-              <span className="brand-italic text-2xl tracking-tighter text-[#1A1A1A]">ecopak wholesale</span>
+              <span className="brand-italic text-2xl tracking-tighter text-[#1A1A1A]">EcoPak Wholesale</span>
               <span className="text-[10px] font-bold text-[#82C864] tracking-[0.2em] uppercase mt-1">Packaging Expert</span>
             </div>
           </button>
@@ -305,106 +312,152 @@ const Navbar = ({ setPage, currentPage, openInquiry }: { setPage: (p: string) =>
   );
 };
 
-const Hero = ({ openInquiry }: { openInquiry: () => void }) => (
-  <section className="relative pt-32 pb-24 lg:pt-52 lg:pb-40 overflow-hidden bg-white">
-    <div className="absolute top-0 right-0 w-1/3 h-full bg-[#82C864]/5 -skew-x-12 translate-x-1/2 -z-10" />
-    <div className="absolute bottom-0 left-0 w-1/4 h-2/3 bg-[#FF9F1C]/5 skew-x-12 -translate-x-1/2 -z-10" />
-    
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="grid lg:grid-cols-2 gap-16 items-center">
+const heroSlides = [
+  {
+    type: 'content',
+    image: "https://images.unsplash.com/photo-1559056191-75902422509d?auto=format&fit=crop&q=80&w=2000"
+  },
+  {
+    type: 'imageOnly',
+    image: "https://cdn.jsdelivr.net/gh/Nengqi915/For-Ecopak-Wholesale-Website@main/img/d3766408a50c0c217e1ace2f871aefa1.png"
+  },
+  {
+    type: 'imageOnly',
+    image: "https://cdn.jsdelivr.net/gh/Nengqi915/For-Ecopak-Wholesale-Website@main/img/6fcdd0543699db08fb9ef29cc7bd6f4f.png"
+  }
+];
+
+const Hero = ({ openInquiry }: { openInquiry: () => void }) => {
+  const [currentIdx, setCurrentIdx] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIdx((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <section className="relative w-full h-[50vh] sm:h-[60vh] md:h-[75vh] lg:h-[85vh] min-h-[400px] flex items-center bg-[#1A1A1A] overflow-hidden mt-20 group">
+      <AnimatePresence initial={false}>
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <div className="inline-flex items-center gap-2 px-3 py-1 mb-8 text-[11px] font-black tracking-widest text-white uppercase bg-[#82C864] rounded-md">
-            <CheckCircle className="w-3 h-3" /> One-Stop Solution
-          </div>
-          <h1 className="text-6xl lg:text-8xl font-black mb-8 tracking-tight text-[#1A1A1A] leading-[0.9]">
-            Custom <br/>
-            <span className="text-[#82C864]">Branded</span> <br/>
-            Packaging
-          </h1>
-          <p className="text-xl lg:text-2xl text-gray-500 mb-12 max-w-xl font-medium leading-relaxed">
-            Helping coffee chains and partners boost sales through 
-            <span className="text-[#1A1A1A] font-bold"> innovative, sustainable designs.</span>
-          </p>
-          <div className="flex flex-col sm:flex-row gap-5">
-            <button 
-              onClick={() => {
-                window.location.hash = '#products';
-              }}
-              className="px-10 py-5 bg-[#1A1A1A] text-white rounded-2xl font-black text-lg hover:bg-[#82C864] transition-all shadow-2xl hover:shadow-[#82C864]/40"
-            >
-              DISCOVER MORE
-            </button>
-            <button 
-              onClick={openInquiry}
-              className="px-10 py-5 bg-white border-4 border-[#FF9F1C] text-[#FF9F1C] rounded-2xl font-black text-lg hover:bg-[#FF9F1C] hover:text-white transition-all shadow-xl shadow-[#FF9F1C]/10"
-            >
-              SEND INQUIRY
-            </button>
-          </div>
-        </motion.div>
-        
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
+          key={currentIdx}
+          initial={{ opacity: 0, scale: 1.02 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="relative"
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease: "easeInOut" }}
+          className="absolute inset-0 cursor-pointer"
+          onClick={() => { 
+            if (heroSlides[currentIdx].type === 'imageOnly') {
+              window.location.hash = '#contact'; 
+            }
+          }}
         >
-          <div className="relative z-10 rounded-[4rem] overflow-hidden shadow-2xl rotate-3 bg-gray-100 border-8 border-white">
-            <img 
-              src="https://images.unsplash.com/photo-1559056191-75902422509d?auto=format&fit=crop&q=80&w=1000" 
-              alt="Premium Coffee Packaging"
-              className="w-full aspect-square object-cover"
-            />
-          </div>
-          <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#FF9F1C] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" />
-          <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-[#82C864] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse delay-700" />
+          <img 
+            src={heroSlides[currentIdx].image} 
+            alt={`Promotional Banner ${currentIdx + 1}`}
+            className="w-full h-full object-cover" 
+          />
+          {heroSlides[currentIdx].type === 'content' && (
+            <div className="absolute inset-0 bg-black/50" />
+          )}
+          {heroSlides[currentIdx].type === 'imageOnly' && (
+            <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+          )}
+          
+          {heroSlides[currentIdx].type === 'content' && (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center pointer-events-auto">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                >
+                  <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 text-xs font-black tracking-widest text-[#1A1A1A] uppercase bg-white rounded-full shadow-lg">
+                    <CheckCircle className="w-4 h-4 text-[#82C864]" /> Custom Coffee Packaging Solutions
+                  </div>
+                  <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-[1.1] tracking-tight drop-shadow-xl">
+                    One-Stop Packaging <br />
+                    <span className="text-[#82C864]">Solutions Provider</span>
+                  </h1>
+                  <p className="text-xl md:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto font-medium leading-relaxed drop-shadow-xl">
+                    Helping coffee chains and partners boost sales through innovative, sustainable design packaging solutions.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-5 justify-center">
+                    <button 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.location.hash = '#products';
+                      }}
+                      className="px-10 py-5 bg-[#82C864] text-white rounded-full font-black text-sm tracking-widest hover:bg-white hover:text-[#1A1A1A] transition-all shadow-xl hover:shadow-2xl"
+                    >
+                      DISCOVER MORE
+                    </button>
+                    <button 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        openInquiry();
+                      }}
+                      className="px-10 py-5 bg-transparent border-2 border-white text-white rounded-full font-black text-sm tracking-widest hover:bg-white hover:text-[#1A1A1A] transition-all"
+                    >
+                      GET A FREE QUOTE
+                    </button>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          )}
         </motion.div>
-      </div>
-    </div>
-  </section>
-);
+      </AnimatePresence>
 
-const Products = () => (
-  <section id="products" className="py-32 bg-[#F8F9FA]">
+      {/* Slider Indicators */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-20 pointer-events-auto">
+        {heroSlides.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={(e) => {
+              e.stopPropagation();
+              setCurrentIdx(idx);
+            }}
+            className={`transition-all duration-300 rounded-full ${idx === currentIdx ? 'w-8 h-2 bg-[#82C864]' : 'w-2 h-2 bg-white/50 hover:bg-white'}`}
+            aria-label={`Go to slide ${idx + 1}`}
+          />
+        ))}
+      </div>
+    </section>
+  );
+};
+
+const Products = ({ setPage }: { setPage: (p: string) => void }) => (
+  <section id="products" className="py-24 bg-white">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
-        <div>
-          <h2 className="text-5xl lg:text-6xl font-black mb-6 text-[#1A1A1A]">Our Products</h2>
-          <p className="text-gray-500 max-w-xl text-lg font-medium">From cold brew cups to premium 1kg bean bags, find the perfect fit for your brand.</p>
-        </div>
-        <div className="flex gap-4">
-          <div className="h-1 w-20 bg-[#82C864] rounded-full" />
-          <div className="h-1 w-10 bg-[#FF9F1C] rounded-full" />
-        </div>
+      <div className="text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-black mb-4 text-[#1A1A1A]">Our Products</h2>
+        <div className="h-1 w-20 bg-[#82C864] rounded-full mx-auto mb-6" />
+        <p className="text-gray-500 max-w-2xl mx-auto text-lg font-medium">From cold brew cups to premium 1kg bean bags, find the perfect packaging fit for your custom brand.</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-16">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {products.map((product, index) => (
           <motion.div
             key={product.name}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className="group"
+            className="group flex flex-col cursor-pointer"
+            onClick={() => setPage(product.page)}
           >
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] mb-8 bg-white shadow-xl shadow-gray-200/50 group-hover:shadow-2xl group-hover:shadow-[#82C864]/20 transition-all duration-500">
+            <div className="relative aspect-square overflow-hidden mb-4 bg-gray-50 rounded-xl group-hover:shadow-lg transition-all duration-300">
               <img 
                 src={product.image} 
                 alt={product.name}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <button className="absolute bottom-6 left-6 right-6 py-4 bg-white text-[#1A1A1A] rounded-2xl font-black text-sm translate-y-20 group-hover:translate-y-0 transition-transform duration-500 shadow-xl">
-                VIEW DETAILS
-              </button>
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
             </div>
-            <h3 className="text-2xl font-black mb-2 text-[#1A1A1A]">{product.name}</h3>
-            <p className="text-gray-400 text-sm font-bold uppercase tracking-widest">{product.description}</p>
+            <h3 className="text-lg font-bold text-[#1A1A1A] group-hover:text-[#82C864] transition-colors">{product.name}</h3>
+            <p className="text-gray-500 text-sm leading-relaxed line-clamp-2 mt-1">{product.description}</p>
           </motion.div>
         ))}
       </div>
@@ -412,57 +465,100 @@ const Products = () => (
   </section>
 );
 
-const Certifications = () => (
-  <section id="about" className="py-32 bg-white overflow-hidden">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="bg-[#1A1A1A] rounded-[4rem] p-12 lg:p-24 text-white relative">
-        <div className="absolute top-0 right-0 w-full h-full overflow-hidden rounded-[4rem]">
-          <div className="absolute -top-1/2 -right-1/4 w-full h-full bg-[#82C864]/10 rounded-full blur-3xl" />
-        </div>
-        
-        <div className="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <span className="text-[#82C864] font-black text-sm tracking-[0.3em] uppercase mb-6 block">Safe & Compliant</span>
-            <h2 className="text-5xl lg:text-6xl font-black mb-8 leading-[1.1]">
-              Your Passport to <br/>
-              <span className="text-white/40">Global Markets</span>
-            </h2>
-            <p className="text-gray-400 text-lg mb-12 font-medium leading-relaxed">
-              AT PACK's solutions meet rigorous international safety standards. Certified by multiple global authorities, our products ensure your brand can compete and succeed in any market.
-            </p>
-            <div className="grid grid-cols-2 gap-8">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-[#82C864] border border-white/10">
-                  <CheckCircle className="w-6 h-6" />
-                </div>
-                <p className="font-bold">FDA Certified</p>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-[#82C864] border border-white/10">
-                  <CheckCircle className="w-6 h-6" />
-                </div>
-                <p className="font-bold">ISO 9001</p>
-              </div>
-            </div>
+const Certifications = () => {
+  const [showImage, setShowImage] = useState(false);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setShowImage(prev => !prev);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <section id="about" className="py-24 bg-[#F8F9FA] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-[#1A1A1A] rounded-[2rem] p-10 lg:p-20 text-white relative">
+          <div className="absolute top-0 right-0 w-full h-full overflow-hidden rounded-[2rem] pointer-events-none">
+            <div className="absolute -top-1/2 -right-1/4 w-full h-full bg-[#82C864]/20 rounded-full blur-3xl" />
           </div>
           
-          <div className="grid grid-cols-2 gap-4">
-            <div className="bg-white/5 p-8 rounded-3xl border border-white/10 flex flex-col justify-between">
-              <Leaf className="w-10 h-10 text-[#82C864] mb-12" />
-              <p className="text-3xl font-black">Eco</p>
-              <p className="text-xs text-gray-500 font-bold uppercase tracking-widest mt-2">Sustainable Materials</p>
+          <div className="relative z-10 grid lg:grid-cols-12 gap-16 items-center">
+            <div className="lg:col-span-5">
+              <span className="text-[#82C864] font-black text-sm tracking-[0.2em] uppercase mb-4 block">Dedicated Partner</span>
+              <h2 className="text-4xl lg:text-5xl font-black mb-6 leading-tight">
+                Empowering <br/>
+                <span className="text-white/50">Local Coffee Shops</span>
+              </h2>
+              <p className="text-gray-300 text-lg mb-10 font-medium leading-relaxed">
+                EcoPak Wholesale's solutions are tailored to help local cafes thrive. We offer safe, reliable, and beautifully crafted packaging that ensures your community brand stands out, without the hassle of global market complexities.
+              </p>
+              <div className="grid grid-cols-2 gap-8">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-[#82C864] border border-white/10">
+                    <CheckCircle className="w-6 h-6" />
+                  </div>
+                  <p className="font-bold">FDA Certified</p>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-[#82C864] border border-white/10">
+                    <CheckCircle className="w-6 h-6" />
+                  </div>
+                  <p className="font-bold">ISO 9001</p>
+                </div>
+              </div>
             </div>
-            <div className="bg-[#FF9F1C] p-8 rounded-3xl flex flex-col justify-between translate-y-8">
-              <Package className="w-10 h-10 text-white mb-12" />
-              <p className="text-3xl font-black text-white">Safe</p>
-              <p className="text-xs text-white/60 font-bold uppercase tracking-widest mt-2">Food Grade Verified</p>
+            
+            <div className="relative h-[400px] sm:h-[500px] w-full lg:col-span-7">
+              <AnimatePresence mode="wait">
+                {!showImage ? (
+                  <motion.div
+                    key="cards"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.5 }}
+                    className="absolute inset-0 grid grid-cols-1 sm:grid-cols-2 gap-6 h-full"
+                  >
+                    <div className="bg-white/5 p-10 rounded-3xl border border-white/10 flex flex-col justify-between h-[300px] sm:h-[400px] self-end">
+                      <Leaf className="w-12 h-12 text-[#82C864] mb-12" />
+                      <div>
+                        <p className="text-4xl font-black">Eco</p>
+                        <p className="text-sm text-gray-500 font-bold uppercase tracking-widest mt-3">Sustainable Materials</p>
+                      </div>
+                    </div>
+                    <div className="bg-[#FF9F1C] p-10 rounded-3xl flex flex-col justify-between h-[300px] sm:h-[400px]">
+                      <Package className="w-12 h-12 text-white mb-12" />
+                      <div>
+                        <p className="text-4xl font-black text-white">Safe</p>
+                        <p className="text-sm text-white/60 font-bold uppercase tracking-widest mt-3">Food Grade Verified</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="image"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.5 }}
+                    className="absolute inset-0 w-full h-[400px] sm:h-[500px]"
+                  >
+                    <img 
+                      src="https://cdn.jsdelivr.net/gh/Nengqi915/For-Ecopak-Wholesale-Website@main/img/8e1ba12f3505fb0ec45e1c7409da0689.png" 
+                      alt="Local coffee shop packaging"
+                      className="w-full h-full object-contain rounded-3xl bg-white/5 p-4 border border-white/10"
+                    />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -504,25 +600,81 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-[#1A1A1A] text-white rounded-[4rem] mx-4 mb-8 overflow-hidden relative">
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-[#82C864]/10 blur-3xl opacity-50 translate-x-1/2" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
-          <div>
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">Ready to upgrade your packaging?</h2>
-            <p className="text-gray-400 text-lg mb-10 font-medium">Get a free quote today and discover how our custom solutions can elevate your brand status.</p>
-            <div className="flex items-center gap-6 p-6 bg-white/5 rounded-3xl border border-white/10">
-              <div className="w-12 h-12 bg-[#FF9F1C] rounded-2xl flex items-center justify-center text-white">
-                <Coffee className="w-6 h-6" />
-              </div>
-              <div>
-                <p className="font-bold text-lg">Coffee Chain Specialist</p>
-                <p className="text-gray-400 text-sm font-medium">Tailored bulk solutions for franchises</p>
-              </div>
+    <section id="contact" className="py-24 bg-gray-50 border-t border-gray-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div className="text-center mb-16">
+          <h2 className="text-4xl lg:text-5xl font-black mb-4 text-[#1A1A1A]">Contact Us</h2>
+          <div className="h-1 w-20 bg-[#82C864] rounded-full mx-auto mb-6" />
+          <p className="text-gray-500 max-w-2xl mx-auto text-lg font-medium">We'd love to hear from you. Get in touch with our team for custom packaging solutions.</p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+          
+          <div className="space-y-12">
+            <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+              <h3 className="text-2xl font-black text-[#1A1A1A] mb-8">Get In Touch</h3>
+              
+              <ul className="space-y-8">
+                <li className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center shrink-0">
+                    <svg className="w-5 h-5 text-[#82C864]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h6 className="font-bold text-[#1A1A1A] text-lg mb-1">Tel</h6>
+                    <p className="text-gray-500 font-medium">+86 188 9977 1415</p>
+                  </div>
+                </li>
+                
+                <li className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center shrink-0">
+                    <svg className="w-5 h-5 text-[#82C864]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h6 className="font-bold text-[#1A1A1A] text-lg mb-1">Email</h6>
+                    <p className="text-gray-500 font-medium">
+                      <a href="mailto:rex@ecopakwholesale.com" className="hover:text-[#82C864] transition-colors block">rex@ecopakwholesale.com</a>
+                      <a href="mailto:raymond@ecopakwholesale.com" className="hover:text-[#82C864] transition-colors block mt-1">raymond@ecopakwholesale.com</a>
+                    </p>
+                  </div>
+                </li>
+
+                <li className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center shrink-0">
+                    <svg className="w-5 h-5 text-[#82C864]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h6 className="font-bold text-[#1A1A1A] text-lg mb-1">Address</h6>
+                    <p className="text-gray-500 font-medium leading-relaxed max-w-sm">
+                      Room 3401C, Xiyue Building, Chuangye 2nd Road, Xin'an Street, Bao'an District, Shenzhen, Guangdong, China
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 h-[300px]">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3688.5833446059286!2d113.88248181056586!3d22.594474779403816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3403ec9bc04d0ef3%3A0xc3b832a2cd2f4e8b!2sXiyue%20Building%2C%20Xin&#39;an%20Subdistrict%2C%20Bao&#39;an%20District%2C%20Shenzhen%2C%20Guangdong%20Province%2C%20China!5e0!3m2!1sen!2sus!4v1703000000000!5m2!1sen!2sus" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen={true} 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </div>
           
-          <form onSubmit={handleSubmit} className="bg-white p-10 rounded-[2.5rem] shadow-2xl">
+          <form onSubmit={handleSubmit} className="bg-white p-10 rounded-[2.5rem] shadow-xl border border-gray-100">
+            <h3 className="text-2xl font-black text-[#1A1A1A] mb-8">Send an Inquiry</h3>
             <div className="space-y-6 text-[#1A1A1A]">
               <div>
                 <label className="block text-gray-700 font-bold mb-2 text-sm">Full Name</label>
@@ -531,7 +683,7 @@ const Contact = () => {
                   required
                   value={name}
                   onChange={e => setName(e.target.value)}
-                  className="w-full px-5 py-4 bg-gray-50 border-0 rounded-2xl text-[#1A1A1A] focus:ring-2 focus:ring-[#82C864] transition-all" 
+                  className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-2xl text-[#1A1A1A] focus:ring-2 focus:ring-[#82C864] transition-all outline-hidden" 
                   placeholder="John Doe" 
                 />
               </div>
@@ -542,7 +694,7 @@ const Contact = () => {
                   required
                   value={email}
                   onChange={e => setEmail(e.target.value)}
-                  className="w-full px-5 py-4 bg-gray-50 border-0 rounded-2xl text-[#1A1A1A] focus:ring-2 focus:ring-[#82C864] transition-all" 
+                  className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-2xl text-[#1A1A1A] focus:ring-2 focus:ring-[#82C864] transition-all outline-hidden" 
                   placeholder="john@company.com" 
                 />
               </div>
@@ -552,14 +704,14 @@ const Contact = () => {
                   required
                   value={details}
                   onChange={e => setDetails(e.target.value)}
-                  className="w-full px-5 py-4 bg-gray-50 border-0 rounded-2xl text-[#1A1A1A] focus:ring-2 focus:ring-[#82C864] transition-all h-32" 
+                  className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-2xl text-[#1A1A1A] focus:ring-2 focus:ring-[#82C864] transition-all h-40 resize-none outline-hidden" 
                   placeholder="Tell us about your packaging needs..."
                 />
               </div>
               <button 
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-5 bg-[#FF9F1C] text-white rounded-2xl font-bold text-lg shadow-xl shadow-[#FF9F1C]/20 hover:opacity-90 transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+                className="w-full py-5 mt-4 bg-[#82C864] text-white rounded-2xl font-bold text-lg shadow-lg hover:bg-[#FF9F1C] transition-all disabled:opacity-70 disabled:cursor-not-allowed uppercase tracking-wider"
               >
                 {isSubmitting ? 'SENDING...' : 'Send Request'}
               </button>
@@ -576,9 +728,9 @@ const Footer = () => (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-[#1A1A1A]">
       <div className="flex items-center gap-2">
         <Logo className="w-10 h-10" />
-        <span className="brand-italic text-lg tracking-tighter">ecopak wholesale</span>
+        <span className="brand-italic text-lg tracking-tighter">EcoPak Wholesale</span>
       </div>
-      <p className="text-gray-400 text-sm font-medium">© 2024 ecopak wholesale. All rights reserved. Your One-Stop Coffee Packaging Expert.</p>
+      <p className="text-gray-400 text-sm font-medium">© 2024 EcoPak Wholesale. All rights reserved. Your One-Stop Coffee Packaging Expert.</p>
       <div className="flex items-center gap-6">
         <a href="#" className="text-gray-400 hover:text-[#82C864] transition-colors text-sm font-medium">Privacy</a>
         <a href="#" className="text-gray-400 hover:text-[#82C864] transition-colors text-sm font-medium">Terms</a>
@@ -740,7 +892,7 @@ export default function App() {
             exit={{ opacity: 0 }}
           >
             <Hero openInquiry={() => setIsInquiryOpen(true)} />
-            <Products />
+            <Products setPage={setCurrentPage} />
             <Certifications />
             <Contact />
           </motion.div>
@@ -793,6 +945,86 @@ export default function App() {
             className="pt-32"
           >
             <CoffeeBeansBagsDetail pageId={currentPage.replace('coffee-beans-bags/', '')} setPage={setCurrentPage} openInquiry={() => setIsInquiryOpen(true)} />
+          </motion.div>
+        ) : currentPage === 'coffee-mugs' ? (
+          <motion.div
+            key="coffee-mugs"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            className="pt-32"
+          >
+            <CoffeeMugs setPage={setCurrentPage} />
+          </motion.div>
+        ) : currentPage.startsWith('coffee-mugs/') ? (
+          <motion.div
+            key="coffee-mugs-detail"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            className="pt-32"
+          >
+            <CoffeeMugsDetail pageId={currentPage.replace('coffee-mugs/', '')} setPage={setCurrentPage} openInquiry={() => setIsInquiryOpen(true)} />
+          </motion.div>
+        ) : currentPage === 'your-own-design' ? (
+          <motion.div
+            key="your-own-design"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            className="pt-32"
+          >
+            <YourOwnDesign setPage={setCurrentPage} />
+          </motion.div>
+        ) : currentPage.startsWith('your-own-design/') ? (
+          <motion.div
+            key="your-own-design-detail"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            className="pt-32"
+          >
+            <YourOwnDesignDetail pageId={currentPage.replace('your-own-design/', '')} setPage={setCurrentPage} openInquiry={() => setIsInquiryOpen(true)} />
+          </motion.div>
+        ) : currentPage === 'one-stop-packaging' ? (
+          <motion.div
+            key="one-stop-packaging"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            className="pt-32"
+          >
+            <OneStop setPage={setCurrentPage} />
+          </motion.div>
+        ) : currentPage.startsWith('one-stop-packaging/') ? (
+          <motion.div
+            key="one-stop-packaging-detail"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            className="pt-32"
+          >
+            <OneStopDetail pageId={currentPage.replace('one-stop-packaging/', '')} setPage={setCurrentPage} openInquiry={() => setIsInquiryOpen(true)} />
+          </motion.div>
+        ) : currentPage === 'blog' ? (
+          <motion.div
+            key="blog"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            className="pt-32"
+          >
+            <Blog setPage={setCurrentPage} />
+          </motion.div>
+        ) : currentPage.startsWith('blog/') ? (
+          <motion.div
+            key="blog-detail"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            className="pt-32"
+          >
+            <BlogDetail pageId={currentPage.replace('blog/', '')} setPage={setCurrentPage} openInquiry={() => setIsInquiryOpen(true)} />
           </motion.div>
         ) : null}
       </AnimatePresence>
