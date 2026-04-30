@@ -64,7 +64,7 @@ export const CoffeeBeansBagsDetail = ({ pageId, setPage, openInquiry }: { pageId
       </button>
 
       <div className="grid lg:grid-cols-2 gap-16 items-start">
-        <div className="bg-gray-50 rounded-[3rem] p-12 flex justify-center items-center shadow-xl border border-gray-100 sticky top-32">
+        <div className="bg-gray-50 rounded-[3rem] p-12 flex justify-center items-center shadow-xl border border-gray-100 lg:sticky lg:top-32">
           <img src={item.image} alt={item.name} className="w-full h-auto object-contain max-h-[600px]" />
         </div>
         

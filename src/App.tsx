@@ -22,6 +22,12 @@ import { Blog, BlogDetail } from './Blog';
 
 const products = [
   { 
+    name: 'Single Wall Coffee Cups', 
+    image: 'https://shopcdnpro.grainajz.com/category/83624/2839/bc0c1bc5dd8c9afb572f14cbd053a07d/Cafe%20Cups%203.png',
+    description: 'Classic single wall paper cups perfect for everyday coffee serving. Lightweight and cost-effective.',
+    page: 'cafe-cups/single-wall-coffee-cups'
+  },
+  { 
     name: 'Cold Coffee Drink Cups', 
     image: 'https://shopcdnpro.grainajz.com/category/83624/2839/2b757078616d0f4ab4c9d1fce97d78e8/Custom%20Your%20Brand%20Coffee%20Pack%205.png',
     description: 'Durable and clear plastic cups for cold brew and iced lattes.',
@@ -62,12 +68,6 @@ const products = [
     image: 'https://shopcdnpro.grainajz.com/category/83624/2839/5fa72936da9ce26b2a6c64b028777827/Coffee%20Beans%20Bags%208.png',
     description: '100% Recyclable PE-based coffee bags designed for the environmentally conscious brand.',
     page: 'coffee-beans-bags/eco-friendly-pe-coffee-bags'
-  },
-  { 
-    name: 'Pizza Catering Restaurant', 
-    image: 'https://shopcdnpro.grainajz.com/category/83624/2839/bc0c1bc5dd8c9afb572f14cbd053a07d/Cafe%20Cups%203.png',
-    description: 'Durable yet biodegradable paper cups for serving various beverages.',
-    page: 'cafe-cups/pizza-catering'
   }
 ];
 
@@ -121,7 +121,7 @@ const navItems: NavItem[] = [
   { name: 'Get A Quote', href: '#contact', isButton: true, page: 'home' },
 ];
 
-const NavDropdown: React.FC<{ item: NavItem; setPage: (p: string) => void }> = ({ item, setPage }) => {
+const NavDropdown: React.FC<{ item: NavItem; setPage: (p: string) => void; currentPage: string }> = ({ item, setPage, currentPage }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -133,9 +133,17 @@ const NavDropdown: React.FC<{ item: NavItem; setPage: (p: string) => void }> = (
       <button 
         onClick={() => {
           if (item.href && item.href.startsWith('#')) {
-            window.location.hash = item.href;
+            const id = item.href.substring(1);
+            if (item.page === currentPage || (!item.page && currentPage === 'home')) {
+              const el = document.getElementById(id);
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            } else {
+              window.location.hash = item.href;
+              if (item.page) setPage(item.page);
+            }
+          } else if (item.page) {
+            setPage(item.page);
           }
-          if (item.page) setPage(item.page);
         }}
         className={`text-sm font-bold text-gray-700 hover:text-[#82C864] transition-colors uppercase tracking-wider flex items-center gap-1 ${isHovered ? 'text-[#82C864]' : ''}`}
       >
@@ -157,13 +165,18 @@ const NavDropdown: React.FC<{ item: NavItem; setPage: (p: string) => void }> = (
                 <button
                   key={sub.name}
                   onClick={() => {
+                    const targetPage = sub.page || 'home';
                     if (sub.href && sub.href.startsWith('#')) {
-                      window.location.hash = sub.href;
-                    }
-                    if (sub.page) {
-                      setPage(sub.page);
+                      const id = sub.href.substring(1);
+                      if (targetPage === currentPage) {
+                        const el = document.getElementById(id);
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      } else {
+                        window.location.hash = sub.href;
+                        setPage(targetPage);
+                      }
                     } else {
-                      setPage('home');
+                      setPage(targetPage);
                     }
                     setIsHovered(false);
                   }}
@@ -214,7 +227,7 @@ const Navbar = ({ setPage, currentPage, openInquiry }: { setPage: (p: string) =>
                   {item.name.toUpperCase()}
                 </button>
               ) : (
-                <NavDropdown key={item.name} item={item} setPage={setPage} />
+                <NavDropdown key={item.name} item={item} setPage={setPage} currentPage={currentPage} />
               )
             ))}
           </div>
@@ -256,9 +269,17 @@ const Navbar = ({ setPage, currentPage, openInquiry }: { setPage: (p: string) =>
                             setActiveMobileMenu(activeMobileMenu === item.name ? null : item.name);
                           } else {
                             if (item.href && item.href.startsWith('#')) {
-                              window.location.hash = item.href;
+                              const id = item.href.substring(1);
+                              if (item.page === currentPage || (!item.page && currentPage === 'home')) {
+                                const el = document.getElementById(id);
+                                if (el) el.scrollIntoView({ behavior: 'smooth' });
+                              } else {
+                                window.location.hash = item.href;
+                                setPage(item.page || 'home');
+                              }
+                            } else {
+                              setPage(item.page || 'home');
                             }
-                            setPage(item.page || 'home');
                             setIsOpen(false);
                           }
                         }}
@@ -282,13 +303,18 @@ const Navbar = ({ setPage, currentPage, openInquiry }: { setPage: (p: string) =>
                               <button 
                                 key={sub.name}
                                 onClick={() => {
+                                  const targetPage = sub.page || 'home';
                                   if (sub.href && sub.href.startsWith('#')) {
-                                    window.location.hash = sub.href;
-                                  }
-                                  if (sub.page) {
-                                    setPage(sub.page);
+                                    const id = sub.href.substring(1);
+                                    if (targetPage === currentPage) {
+                                      const el = document.getElementById(id);
+                                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                                    } else {
+                                      window.location.hash = sub.href;
+                                      setPage(targetPage);
+                                    }
                                   } else {
-                                    setPage('home');
+                                    setPage(targetPage);
                                   }
                                   setIsOpen(false);
                                 }}
@@ -349,7 +375,8 @@ const Hero = ({ openInquiry }: { openInquiry: () => void }) => {
           className="absolute inset-0 cursor-pointer"
           onClick={() => { 
             if (heroSlides[currentIdx].type === 'imageOnly') {
-              window.location.hash = '#contact'; 
+              const el = document.getElementById('contact');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
             }
           }}
         >
@@ -387,7 +414,8 @@ const Hero = ({ openInquiry }: { openInquiry: () => void }) => {
                     <button 
                       onClick={(e) => {
                         e.stopPropagation();
-                        window.location.hash = '#products';
+                        const el = document.getElementById('products');
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
                       }}
                       className="px-10 py-5 bg-[#82C864] text-white rounded-full font-black text-sm tracking-widest hover:bg-white hover:text-[#1A1A1A] transition-all shadow-xl hover:shadow-2xl"
                     >
@@ -1067,14 +1095,14 @@ const cafeCupProducts = [
     ]
   },
   {
-    id: "pizza-catering",
-    name: "Pizza Catering Restaurant",
+    id: "single-wall-coffee-cups",
+    name: "Single Wall Coffee Cups",
     image: "https://shopcdnpro.grainajz.com/category/83624/2839/bc0c1bc5dd8c9afb572f14cbd053a07d/Cafe%20Cups%203.png",
-    description: "Our catering and restaurant paper cups provide an elevated dining experience. Designed with convenience and sustainability at the forefront, these cups are crafted from highly durable yet biodegradable materials. They are perfect for serving various beverages, from sodas to rich coffees.",
+    description: "Classic single wall paper cups perfect for everyday coffee serving. Lightweight and cost-effective, they are ideal for busy cafes.",
     longDescription: [
-      "Each paper cup highlights an elegant, modern design that acts as an extension of your restaurant's ambiance. Providing high-quality customized cups adds a touch of professionalism and heightened brand recognition, making every customer interaction more memorable. Whether catering a small gathering or a mass event, these cups are perfectly suited for the task.",
-      "Constructed under strict hygiene standards to guarantee safety, these cups feature a tightly rolled rim and a smooth interior finish that securely prevents leakage. We offer these in numerous sizes to accommodate all beverage needs. They stack neatly and are incredibly simple to store and dispose of.",
-      "Beyond practical usage, taking advantage of our environmentally friendly, composable paper cups showcases your brand's commitment to reducing carbon footprints. Accompanied by our customization expertise, you can match your event's theme meticulously and efficiently."
+      "Our single wall paper cups provide an excellent and cost-effective solution for serving both hot and cold beverages. Designed with convenience and sustainability at the forefront, these cups are crafted from highly durable yet biodegradable materials.",
+      "Each paper cup highlights an elegant, modern design that acts as an extension of your cafe's ambiance. Providing high-quality customized cups adds a touch of professionalism and heightened brand recognition, making every customer interaction more memorable. Whether catering a small gathering or a mass event, these cups are perfectly suited for the task.",
+      "Constructed under strict hygiene standards to guarantee safety, these cups feature a tightly rolled rim and a smooth interior finish that securely prevents leakage. We offer these in numerous sizes to accommodate all beverage needs. They stack neatly and are incredibly simple to store and dispose of."
     ]
   },
   {
@@ -1169,7 +1197,7 @@ const CafeCupsDetail = ({ pageId, setPage, openInquiry }: { pageId: string; setP
       </button>
 
       <div className="grid lg:grid-cols-2 gap-16 items-start">
-        <div className="bg-gray-50 rounded-[3rem] p-12 flex justify-center items-center shadow-xl border border-gray-100 sticky top-32">
+        <div className="bg-gray-50 rounded-[3rem] p-12 flex justify-center items-center shadow-xl border border-gray-100 lg:sticky lg:top-32">
           <img src={item.image} alt={item.name} className="w-full h-auto object-contain max-h-[600px]" />
         </div>
         

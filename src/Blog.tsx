@@ -112,7 +112,7 @@ export const BlogDetail = ({ pageId, setPage, openInquiry }: { pageId: string; s
             dangerouslySetInnerHTML={{ __html: post.htmlContent || '' }}
           />
           
-          <div className="lg:w-[350px] shrink-0 sticky top-32">
+          <div className="lg:w-[350px] shrink-0 lg:sticky lg:top-32">
             {post.tocHtml && (
               <div className="bg-white border border-gray-200 rounded shadow-sm text-sm p-0 overflow-hidden">
                 <div className="bg-white font-bold p-4 border-b border-gray-200 flex justify-between items-center text-[#1A1A1A]">
