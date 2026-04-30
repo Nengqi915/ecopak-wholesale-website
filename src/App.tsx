@@ -19,6 +19,7 @@ import { CoffeeMugs, CoffeeMugsDetail } from './CoffeeMugs';
 import { YourOwnDesign, YourOwnDesignDetail } from './YourOwnDesign';
 import { OneStop, OneStopDetail } from './OneStop';
 import { Blog, BlogDetail } from './Blog';
+import Privacy from './Privacy';
 
 const products = [
   { 
@@ -751,18 +752,16 @@ const Contact = () => {
   );
 };
 
-const Footer = () => (
+const Footer = ({ setPage }: { setPage: (p: string) => void }) => (
   <footer className="py-12 border-t border-gray-100">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-[#1A1A1A]">
       <div className="flex items-center gap-2">
         <Logo className="w-10 h-10" />
         <span className="brand-italic text-lg tracking-tighter">EcoPak Wholesale</span>
       </div>
-      <p className="text-gray-400 text-sm font-medium">© 2024 EcoPak Wholesale. All rights reserved. Your One-Stop Coffee Packaging Expert.</p>
+      <p className="text-gray-400 text-sm font-medium">© 2025 EcoPak Wholesale. All rights reserved. Your One-Stop Coffee Packaging Expert.</p>
       <div className="flex items-center gap-6">
-        <a href="#" className="text-gray-400 hover:text-[#82C864] transition-colors text-sm font-medium">Privacy</a>
-        <a href="#" className="text-gray-400 hover:text-[#82C864] transition-colors text-sm font-medium">Terms</a>
-        <a href="#" className="text-gray-400 hover:text-[#82C864] transition-colors text-sm font-medium">LinkedIn</a>
+        <button onClick={() => setPage('privacy')} className="text-gray-400 hover:text-[#82C864] transition-colors text-sm font-medium">Privacy Policy</button>
       </div>
     </div>
   </footer>
@@ -1054,9 +1053,18 @@ export default function App() {
           >
             <BlogDetail pageId={currentPage.replace('blog/', '')} setPage={setCurrentPage} openInquiry={() => setIsInquiryOpen(true)} />
           </motion.div>
+        ) : currentPage === 'privacy' ? (
+          <motion.div
+            key="privacy"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+          >
+            <Privacy setPage={setCurrentPage} />
+          </motion.div>
         ) : null}
       </AnimatePresence>
-      <Footer />
+      <Footer setPage={setCurrentPage} />
     </div>
   );
 }
