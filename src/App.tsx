@@ -494,6 +494,50 @@ const Products = ({ setPage }: { setPage: (p: string) => void }) => (
   </section>
 );
 
+const equipmentImages = [
+  "https://cdn.jsdelivr.net/gh/Nengqi915/For-Ecopak-Wholesale-Website@main/img/da52ff207236cd3af0ba9d02080d363b.jpg",
+  "https://cdn.jsdelivr.net/gh/Nengqi915/For-Ecopak-Wholesale-Website@main/img/ba5cec0858a1d3e5e98a02c1731ef896.jpg",
+  "https://cdn.jsdelivr.net/gh/Nengqi915/For-Ecopak-Wholesale-Website@main/img/ae95b2a26e45ee3a75c0ba9ada6f271c.jpg",
+  "https://cdn.jsdelivr.net/gh/Nengqi915/For-Ecopak-Wholesale-Website@main/img/03b3b75ccd5b17ce3e48e226b5c8d533.jpg",
+  "https://cdn.jsdelivr.net/gh/Nengqi915/For-Ecopak-Wholesale-Website@main/img/1e061cd592668b84f882a6fb182d5555.jpg"
+];
+
+const AdvancedEquipment = () => {
+  return (
+    <section className="py-24 bg-gray-50 overflow-hidden border-t border-gray-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-black mb-4 text-[#1A1A1A]">State-of-the-Art Production Facility</h2>
+          <div className="h-1 w-20 bg-[#82C864] rounded-full mx-auto mb-6" />
+          <p className="text-gray-500 max-w-2xl mx-auto text-lg font-medium">Equipped with industrial-grade machinery to deliver consistent, premium quality, and scalable packaging solutions for your coffee brand.</p>
+        </div>
+      </div>
+      
+      <div className="relative w-full flex marquee-container overflow-hidden">
+        {/* Fading transparent masks for seamless edges */}
+        <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none" />
+        
+        {Array.from({ length: 6 }).map((_, blockIdx) => (
+          <div key={blockIdx} className="flex animate-marquee shrink-0" aria-hidden={blockIdx > 0 ? "true" : undefined}>
+            {equipmentImages.map((src, index) => (
+              <div key={`${blockIdx}-${index}`} className="flex-none w-64 md:w-80 lg:w-96 px-3">
+                <div className="rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow h-48 md:h-64 object-cover relative ring-1 ring-gray-100 bg-white">
+                  <img 
+                    src={src} 
+                    alt={`Equipment ${index + 1}`} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
 const Certifications = () => {
   const [showImage, setShowImage] = useState(false);
 
@@ -934,6 +978,7 @@ export default function App() {
           >
             <Hero openInquiry={() => setIsInquiryOpen(true)} />
             <Products setPage={setCurrentPage} />
+            <AdvancedEquipment />
             <Certifications />
             <Contact />
           </motion.div>
