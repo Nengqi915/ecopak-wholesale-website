@@ -941,8 +941,35 @@ const WhatsAppButton = () => (
 );
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState('home');
+  const [currentPage, _setCurrentPage] = useState(() => {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('page') || 'home';
+  });
   const [isInquiryOpen, setIsInquiryOpen] = useState(false);
+
+  const setCurrentPage = (page: string) => {
+    if (page === currentPage) return;
+    _setCurrentPage(page);
+    const newUrl = page === 'home' 
+      ? window.location.pathname 
+      : `${window.location.pathname}?page=${page}`;
+    window.history.pushState({ page }, '', newUrl);
+  };
+
+  useEffect(() => {
+    const handlePopState = () => {
+      const params = new URLSearchParams(window.location.search);
+      _setCurrentPage(params.get('page') || 'home');
+    };
+    window.addEventListener('popstate', handlePopState);
+    
+    const newUrl = currentPage === 'home' 
+      ? window.location.pathname 
+      : `${window.location.pathname}?page=${currentPage}`;
+    window.history.replaceState({ page: currentPage }, '', newUrl);
+    
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   useEffect(() => {
     // Scroll to top when page changes
