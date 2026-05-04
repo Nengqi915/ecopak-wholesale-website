@@ -139,8 +139,11 @@ const NavDropdown: React.FC<{ item: NavItem; setPage: (p: string) => void; curre
               const el = document.getElementById(id);
               if (el) el.scrollIntoView({ behavior: 'smooth' });
             } else {
-              window.location.hash = item.href;
               if (item.page) setPage(item.page);
+              setTimeout(() => {
+                const el = document.getElementById(id);
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }, 100);
             }
           } else if (item.page) {
             setPage(item.page);
@@ -173,8 +176,11 @@ const NavDropdown: React.FC<{ item: NavItem; setPage: (p: string) => void; curre
                         const el = document.getElementById(id);
                         if (el) el.scrollIntoView({ behavior: 'smooth' });
                       } else {
-                        window.location.hash = sub.href;
                         setPage(targetPage);
+                        setTimeout(() => {
+                          const el = document.getElementById(id);
+                          if (el) el.scrollIntoView({ behavior: 'smooth' });
+                        }, 100);
                       }
                     } else {
                       setPage(targetPage);
@@ -205,7 +211,6 @@ const Navbar = ({ setPage, currentPage, openInquiry }: { setPage: (p: string) =>
         <div className="flex justify-between items-center h-20">
           <button 
             onClick={() => {
-              window.location.hash = '';
               setPage('home');
             }}
             className="flex items-center gap-3"
@@ -275,8 +280,11 @@ const Navbar = ({ setPage, currentPage, openInquiry }: { setPage: (p: string) =>
                                 const el = document.getElementById(id);
                                 if (el) el.scrollIntoView({ behavior: 'smooth' });
                               } else {
-                                window.location.hash = item.href;
                                 setPage(item.page || 'home');
+                                setTimeout(() => {
+                                  const el = document.getElementById(id);
+                                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                                }, 100);
                               }
                             } else {
                               setPage(item.page || 'home');
@@ -311,8 +319,11 @@ const Navbar = ({ setPage, currentPage, openInquiry }: { setPage: (p: string) =>
                                       const el = document.getElementById(id);
                                       if (el) el.scrollIntoView({ behavior: 'smooth' });
                                     } else {
-                                      window.location.hash = sub.href;
                                       setPage(targetPage);
+                                      setTimeout(() => {
+                                        const el = document.getElementById(id);
+                                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                                      }, 100);
                                     }
                                   } else {
                                     setPage(targetPage);
@@ -942,49 +953,41 @@ const WhatsAppButton = () => (
 
 export default function App() {
   const [currentPage, _setCurrentPage] = useState(() => {
-    const params = new URLSearchParams(window.location.search);
-    return params.get('page') || 'home';
+    const hash = window.location.hash;
+    if (hash.startsWith('#/')) {
+      return hash.substring(2) || 'home';
+    }
+    return 'home';
   });
   const [isInquiryOpen, setIsInquiryOpen] = useState(false);
 
   const setCurrentPage = (page: string) => {
     if (page === currentPage) return;
-    _setCurrentPage(page);
-    const newUrl = page === 'home' 
-      ? window.location.pathname 
-      : `${window.location.pathname}?page=${page}`;
-    window.history.pushState({ page }, '', newUrl);
+    window.location.hash = page === 'home' ? '#/' : `#/${page}`;
   };
 
   useEffect(() => {
-    const handlePopState = () => {
-      const params = new URLSearchParams(window.location.search);
-      _setCurrentPage(params.get('page') || 'home');
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash.startsWith('#/')) {
+        _setCurrentPage(hash.substring(2) || 'home');
+      } else if (hash === '' || hash === '#') {
+        _setCurrentPage('home');
+      }
     };
-    window.addEventListener('popstate', handlePopState);
+    window.addEventListener('hashchange', handleHashChange);
     
-    const newUrl = currentPage === 'home' 
-      ? window.location.pathname 
-      : `${window.location.pathname}?page=${currentPage}`;
-    window.history.replaceState({ page: currentPage }, '', newUrl);
+    const hash = window.location.hash;
+    if (!hash.startsWith('#/') && hash !== '' && hash !== '#contact' && hash !== '#products' && hash !== '#') {
+      window.history.replaceState(null, '', '#/');
+    }
     
-    return () => window.removeEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
   useEffect(() => {
     // Scroll to top when page changes
     window.scrollTo(0, 0);
-    
-    // If hash exists and we are on home, scroll to it
-    if (currentPage === 'home' && window.location.hash) {
-      const id = window.location.hash.substring(1);
-      const el = document.getElementById(id);
-      if (el) {
-        setTimeout(() => {
-          el.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
-      }
-    }
   }, [currentPage]);
 
   return (
