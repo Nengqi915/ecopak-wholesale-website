@@ -75,7 +75,7 @@ const products = [
 const Logo = ({ className = "w-12 h-12" }: { className?: string }) => (
   <div className={`relative flex items-center justify-center overflow-hidden rounded-xl ${className}`}>
     <img 
-      src="https://cdn.jsdelivr.net/gh/Nengqi915/For-Ecopak-Wholesale-Website@main/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20250514172430.png" 
+      src="https://cdn.jsdelivr.net/gh/Nengqi915/For-Ecopak-Wholesale-Website@main/img/Gemini_Generated_Image_zh3zcszh3zcszh3z.png" 
       alt="ecopak wholesale logo"
       className="w-full h-full object-cover"
       referrerPolicy="no-referrer"
