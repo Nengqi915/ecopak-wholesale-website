@@ -77,7 +77,7 @@ import logoImg from './logo.png';
 const Logo = ({ className = "w-12 h-12" }: { className?: string }) => (
   <div className={`relative flex items-center justify-center overflow-hidden rounded-xl ${className}`}>
     <img 
-      src={logoImg} 
+      src="https://cdn.jsdelivr.net/gh/Nengqi915/For-Ecopak-Wholesale-Website@main/img/logo%E5%B0%8F%E7%89%88.jpg" 
       alt="ecopak wholesale logo"
       className="w-full h-full object-cover bg-white"
       referrerPolicy="no-referrer"
