@@ -1167,7 +1167,7 @@ const cafeCupProducts = [
   {
     id: "takeaway-coffee-pack",
     name: "Takeaway Coffee Pack For Cafe",
-    image: "https://shopcdnpro.grainajz.com/category/83624/2839/1d9ffae5c7b498ae81f5cb84ac3a4e5c/Cafe%20Cups%201.png",
+    image: "https://cdn.jsdelivr.net/gh/Nengqi915/For-Ecopak-Wholesale-Website@main/img/Main-01.jpg",
     description: "Introducing our Takeaway Coffee Pack specifically designed for cafes. This convenient packaging solution is perfect for serving your customers' favorite coffee drinks on the go. It features sturdy, eco-friendly materials that ensure both freshness and sustainability. The sleek design complements your cafe's branding, while the secure sealing ensures no spills or leaks.",
     longDescription: [
       "Our Takeaway Coffee Pack is highly customizable to fit your unique needs. Choose from a variety of sizes to accommodate different beverage volumes, from espresso shots to large lattes. These packs are microwave and freezer-safe, making them incredibly versatile for various consumer preferences. The ergonomic design and tight-sealing lids guarantee that your customers can enjoy their drinks anywhere, anytime without hassle.",
