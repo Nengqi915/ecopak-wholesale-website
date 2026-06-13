@@ -74,17 +74,15 @@ const products = [
 
 import logoImg from './logo.png';
 
-const Logo = ({ className = "w-12 h-12" }: { className?: string }) => (
-  <div className={`relative flex items-center justify-center overflow-hidden rounded-xl ${className}`}>
-    <img 
-      src="https://cdn.jsdelivr.net/gh/Nengqi915/For-Ecopak-Wholesale-Website@main/img/logo%E5%B0%8F%E7%89%88.jpg" 
-      alt="ecopak wholesale logo"
-      className="w-full h-full object-cover bg-white"
-      referrerPolicy="no-referrer"
-      loading="eager"
-      fetchPriority="high"
-    />
-  </div>
+const Logo = ({ className = "h-12 w-auto" }: { className?: string }) => (
+  <img 
+    src="https://cdn.jsdelivr.net/gh/Nengqi915/For-Ecopak-Wholesale-Website@main/img/ChatGPT%20Image%202026%E5%B9%B46%E6%9C%8813%E6%97%A5%2018_03_52.png" 
+    alt="EcoPak Wholesale Logo"
+    className={`object-contain max-h-full ${className}`}
+    referrerPolicy="no-referrer"
+    loading="eager"
+    fetchPriority="high"
+  />
 );
 
 interface NavSubItem {
@@ -210,20 +208,16 @@ const Navbar = ({ setPage, currentPage, openInquiry }: { setPage: (p: string) =>
   const [activeMobileMenu, setActiveMobileMenu] = useState<string | null>(null);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-[#F5EDE2] border-b border-gray-200/50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <button 
             onClick={() => {
               setPage('home');
             }}
-            className="flex items-center gap-3"
+            className="flex items-center"
           >
-            <Logo className="w-14 h-14" />
-            <div className="flex flex-col leading-none text-left">
-              <span className="brand-italic text-2xl tracking-tighter text-[#1A1A1A]">EcoPak Wholesale</span>
-              <span className="text-[10px] font-bold text-[#82C864] tracking-[0.2em] uppercase mt-1">Packaging Expert</span>
-            </div>
+            <Logo className="h-12 md:h-14 w-auto" />
           </button>
           
           <div className="hidden md:flex items-center space-x-8 h-full">
@@ -812,12 +806,14 @@ const Contact = () => {
 };
 
 const Footer = ({ setPage }: { setPage: (p: string) => void }) => (
-  <footer className="py-12 border-t border-gray-100">
+  <footer className="py-12 bg-[#F5EDE2] border-t border-gray-200/50">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-[#1A1A1A]">
-      <div className="flex items-center gap-2">
-        <Logo className="w-10 h-10" />
-        <span className="brand-italic text-lg tracking-tighter">EcoPak Wholesale</span>
-      </div>
+      <button 
+        onClick={() => setPage('home')}
+        className="flex items-center"
+      >
+        <Logo className="h-10 md:h-12 w-auto" />
+      </button>
       <p className="text-gray-400 text-sm font-medium">© 2025 EcoPak Wholesale. All rights reserved. Your One-Stop Coffee Packaging Expert.</p>
       <div className="flex items-center gap-6">
         <button onClick={() => setPage('privacy')} className="text-gray-400 hover:text-[#82C864] transition-colors text-sm font-medium">Privacy Policy</button>
@@ -1167,7 +1163,7 @@ const cafeCupProducts = [
   {
     id: "takeaway-coffee-pack",
     name: "Takeaway Coffee Pack For Cafe",
-    image: "https://cdn.jsdelivr.net/gh/Nengqi915/For-Ecopak-Wholesale-Website@main/img/Main-01.jpg",
+    image: "https://shopcdnpro.grainajz.com/category/83624/2839/1d9ffae5c7b498ae81f5cb84ac3a4e5c/Cafe%20Cups%201.png",
     description: "Introducing our Takeaway Coffee Pack specifically designed for cafes. This convenient packaging solution is perfect for serving your customers' favorite coffee drinks on the go. It features sturdy, eco-friendly materials that ensure both freshness and sustainability. The sleek design complements your cafe's branding, while the secure sealing ensures no spills or leaks.",
     longDescription: [
       "Our Takeaway Coffee Pack is highly customizable to fit your unique needs. Choose from a variety of sizes to accommodate different beverage volumes, from espresso shots to large lattes. These packs are microwave and freezer-safe, making them incredibly versatile for various consumer preferences. The ergonomic design and tight-sealing lids guarantee that your customers can enjoy their drinks anywhere, anytime without hassle.",
